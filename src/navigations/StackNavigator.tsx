@@ -1,10 +1,17 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Pagina1Screen, Pagina2Screen, Pagina3Screen} from '../screens';
-import { PersonaScreen } from '../screens/PersonaScreen';
+import {PersonaScreen} from '../screens/PersonaScreen';
+
+export type RootStackParams = {
+  Pagina1Screen: undefined;
+  Pagina2Screen: undefined;
+  Pagina3Screen: undefined;
+  PersonaScreen: {id:number,nombre:string};
+};
 
 export const StackNavigator = () => {
-  const Stack = createNativeStackNavigator();
+  const Stack = createNativeStackNavigator<RootStackParams>();
   return (
     <Stack.Navigator
       screenOptions={{
